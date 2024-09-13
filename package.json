@@ -2,10 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "20"
+  },
   "scripts": {
     "start": "node ./dist/http/server.js",
-    "dev": "tsx watch --env-file .env ./src/http/server.ts",
     "build": "tsup src",
+    "dev": "tsx watch --env-file .env ./src/http/server.ts",
     "seed": "tsx --env-file .env ./src/db/seed.ts"
   },
   "keywords": [],
@@ -17,6 +20,7 @@
     "@faker-js/faker": "8.4.1",
     "@types/node": "22.1.0",
     "drizzle-kit": "0.24.0",
+    "tsup": "^8.2.4",
     "tsx": "4.17.0",
     "typescript": "5.5.4"
   },
