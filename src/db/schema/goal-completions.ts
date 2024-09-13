@@ -1,5 +1,4 @@
-import { text, timestamp } from 'drizzle-orm/pg-core'
-import { pgTable } from 'drizzle-orm/pg-core'
+import { text, timestamp, pgTable } from 'drizzle-orm/pg-core'
 import { createId } from '@paralleldrive/cuid2'
 import { goals } from './goals'
 
