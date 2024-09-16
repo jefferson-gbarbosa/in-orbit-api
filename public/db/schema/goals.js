@@ -17,7 +17,7 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/db/schema/goals.ts
+// api/db/schema/goals.ts
 var goals_exports = {};
 __export(goals_exports, {
   goals: () => goals

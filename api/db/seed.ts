@@ -1,4 +1,4 @@
-import { client, db } from '@/db'
+import { client, db } from '.'
 import { goals } from './schema'
 import { fakerPT_BR as faker } from '@faker-js/faker'
 import { goalCompletions } from './schema/goal-completions'

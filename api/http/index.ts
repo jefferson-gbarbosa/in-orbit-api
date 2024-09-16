@@ -6,12 +6,12 @@ import {
   validatorCompiler,
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod'
-import { createGoalRoute } from './routes/create-goal'
-import { createGoalCompletionRoute } from './routes/create-goal-completion'
-import { getWeekSummaryRoute } from './routes/get-week-summary'
-import { getWeekPendingGoalsRoute } from './routes/get-week-pending-goals'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from "@fastify/swagger-ui";
+import { createGoalRoute } from './routes/create-goal';
+import { createGoalCompletionRoute } from './routes/create-goal-completion';
+import { getWeekSummaryRoute } from './routes/get-week-summary';
+import { getWeekPendingGoalsRoute } from './routes/get-week-pending-goals';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 

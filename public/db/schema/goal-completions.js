@@ -17,7 +17,7 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/db/schema/goal-completions.ts
+// api/db/schema/goal-completions.ts
 var goal_completions_exports = {};
 __export(goal_completions_exports, {
   goalCompletions: () => goalCompletions
@@ -26,7 +26,7 @@ module.exports = __toCommonJS(goal_completions_exports);
 var import_cuid22 = require("@paralleldrive/cuid2");
 var import_pg_core2 = require("drizzle-orm/pg-core");
 
-// src/db/schema/goals.ts
+// api/db/schema/goals.ts
 var import_cuid2 = require("@paralleldrive/cuid2");
 var import_pg_core = require("drizzle-orm/pg-core");
 var goals = (0, import_pg_core.pgTable)("goals", {
@@ -36,7 +36,7 @@ var goals = (0, import_pg_core.pgTable)("goals", {
   createdAt: (0, import_pg_core.timestamp)("created_at", { withTimezone: true }).notNull().defaultNow()
 });
 
-// src/db/schema/goal-completions.ts
+// api/db/schema/goal-completions.ts
 var goalCompletions = (0, import_pg_core2.pgTable)("goal_completions", {
   id: (0, import_pg_core2.text)("id").primaryKey().$defaultFn(() => (0, import_cuid22.createId)()),
   goalId: (0, import_pg_core2.text)("goal_id").references(() => goals.id).notNull(),

@@ -27,32 +27,37 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/http/routes/create-goal-completion.ts
+// api/http/routes/create-goal-completion.ts
 var create_goal_completion_exports = {};
 __export(create_goal_completion_exports, {
   createGoalCompletionRoute: () => createGoalCompletionRoute
 });
 module.exports = __toCommonJS(create_goal_completion_exports);
 
-// src/env.ts
+// api/app/functions/create-goal-completion.ts
+var import_dayjs = __toESM(require("dayjs"));
+var import_weekOfYear = __toESM(require("dayjs/plugin/weekOfYear"));
+var import_drizzle_orm = require("drizzle-orm");
+
+// api/env.ts
 var import_zod = require("zod");
 var envSchema = import_zod.z.object({
   DATABASE_URL: import_zod.z.string().url()
 });
 var env = envSchema.parse(process.env);
 
-// src/db/index.ts
+// api/db/index.ts
 var import_postgres_js = require("drizzle-orm/postgres-js");
 var import_postgres = __toESM(require("postgres"));
 
-// src/db/schema/index.ts
+// api/db/schema/index.ts
 var schema_exports = {};
 __export(schema_exports, {
   goalCompletions: () => goalCompletions,
   goals: () => goals
 });
 
-// src/db/schema/goals.ts
+// api/db/schema/goals.ts
 var import_cuid2 = require("@paralleldrive/cuid2");
 var import_pg_core = require("drizzle-orm/pg-core");
 var goals = (0, import_pg_core.pgTable)("goals", {
@@ -62,7 +67,7 @@ var goals = (0, import_pg_core.pgTable)("goals", {
   createdAt: (0, import_pg_core.timestamp)("created_at", { withTimezone: true }).notNull().defaultNow()
 });
 
-// src/db/schema/goal-completions.ts
+// api/db/schema/goal-completions.ts
 var import_cuid22 = require("@paralleldrive/cuid2");
 var import_pg_core2 = require("drizzle-orm/pg-core");
 var goalCompletions = (0, import_pg_core2.pgTable)("goal_completions", {
@@ -71,14 +76,11 @@ var goalCompletions = (0, import_pg_core2.pgTable)("goal_completions", {
   createdAt: (0, import_pg_core2.timestamp)("created_at", { withTimezone: true }).notNull().defaultNow()
 });
 
-// src/db/index.ts
+// api/db/index.ts
 var client = (0, import_postgres.default)(env.DATABASE_URL);
 var db = (0, import_postgres_js.drizzle)(client, { schema: schema_exports });
 
-// src/app/functions/create-goal-completion.ts
-var import_dayjs = __toESM(require("dayjs"));
-var import_weekOfYear = __toESM(require("dayjs/plugin/weekOfYear"));
-var import_drizzle_orm = require("drizzle-orm");
+// api/app/functions/create-goal-completion.ts
 import_dayjs.default.extend(import_weekOfYear.default);
 async function createGoalCompletion({
   goalId
@@ -116,7 +118,7 @@ async function createGoalCompletion({
   };
 }
 
-// src/http/routes/create-goal-completion.ts
+// api/http/routes/create-goal-completion.ts
 var import_zod2 = require("zod");
 var createGoalCompletionRoute = async (app) => {
   app.post(

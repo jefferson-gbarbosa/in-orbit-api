@@ -1,6 +1,7 @@
-import { createGoal } from '@/app/functions/create-goal'
+import { createGoal } from '../../app/functions/create-goal'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
+
 
 export const createGoalRoute: FastifyPluginAsyncZod = async app => {
   app.post(

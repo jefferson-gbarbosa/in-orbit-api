@@ -26,30 +26,32 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// src/http/server.ts
+// api/http/index.ts
 var import_fastify = __toESM(require("fastify"));
 var import_cors = __toESM(require("@fastify/cors"));
 var import_fastify_type_provider_zod = require("fastify-type-provider-zod");
+var import_swagger = __toESM(require("@fastify/swagger"));
+var import_swagger_ui = __toESM(require("@fastify/swagger-ui"));
 
-// src/env.ts
+// api/env.ts
 var import_zod = require("zod");
 var envSchema = import_zod.z.object({
   DATABASE_URL: import_zod.z.string().url()
 });
 var env = envSchema.parse(process.env);
 
-// src/db/index.ts
+// api/db/index.ts
 var import_postgres_js = require("drizzle-orm/postgres-js");
 var import_postgres = __toESM(require("postgres"));
 
-// src/db/schema/index.ts
+// api/db/schema/index.ts
 var schema_exports = {};
 __export(schema_exports, {
   goalCompletions: () => goalCompletions,
   goals: () => goals
 });
 
-// src/db/schema/goals.ts
+// api/db/schema/goals.ts
 var import_cuid2 = require("@paralleldrive/cuid2");
 var import_pg_core = require("drizzle-orm/pg-core");
 var goals = (0, import_pg_core.pgTable)("goals", {
@@ -59,7 +61,7 @@ var goals = (0, import_pg_core.pgTable)("goals", {
   createdAt: (0, import_pg_core.timestamp)("created_at", { withTimezone: true }).notNull().defaultNow()
 });
 
-// src/db/schema/goal-completions.ts
+// api/db/schema/goal-completions.ts
 var import_cuid22 = require("@paralleldrive/cuid2");
 var import_pg_core2 = require("drizzle-orm/pg-core");
 var goalCompletions = (0, import_pg_core2.pgTable)("goal_completions", {
@@ -68,11 +70,11 @@ var goalCompletions = (0, import_pg_core2.pgTable)("goal_completions", {
   createdAt: (0, import_pg_core2.timestamp)("created_at", { withTimezone: true }).notNull().defaultNow()
 });
 
-// src/db/index.ts
+// api/db/index.ts
 var client = (0, import_postgres.default)(env.DATABASE_URL);
 var db = (0, import_postgres_js.drizzle)(client, { schema: schema_exports });
 
-// src/app/functions/create-goal.ts
+// api/app/functions/create-goal.ts
 async function createGoal({
   title,
   desiredWeeklyFrequency
@@ -84,7 +86,7 @@ async function createGoal({
   return { goal };
 }
 
-// src/http/routes/create-goal.ts
+// api/http/routes/create-goal.ts
 var import_zod2 = require("zod");
 var createGoalRoute = async (app2) => {
   app2.post(
@@ -108,7 +110,7 @@ var createGoalRoute = async (app2) => {
   );
 };
 
-// src/app/functions/create-goal-completion.ts
+// api/app/functions/create-goal-completion.ts
 var import_dayjs = __toESM(require("dayjs"));
 var import_weekOfYear = __toESM(require("dayjs/plugin/weekOfYear"));
 var import_drizzle_orm = require("drizzle-orm");
@@ -149,7 +151,7 @@ async function createGoalCompletion({
   };
 }
 
-// src/http/routes/create-goal-completion.ts
+// api/http/routes/create-goal-completion.ts
 var import_zod3 = require("zod");
 var createGoalCompletionRoute = async (app2) => {
   app2.post(
@@ -171,7 +173,7 @@ var createGoalCompletionRoute = async (app2) => {
   );
 };
 
-// src/app/functions/get-week-summary.ts
+// api/app/functions/get-week-summary.ts
 var import_dayjs2 = __toESM(require("dayjs"));
 var import_weekOfYear2 = __toESM(require("dayjs/plugin/weekOfYear"));
 var import_drizzle_orm2 = require("drizzle-orm");
@@ -235,7 +237,7 @@ async function getWeekSummary() {
   return { summary };
 }
 
-// src/http/routes/get-week-summary.ts
+// api/http/routes/get-week-summary.ts
 var getWeekSummaryRoute = async (app2) => {
   app2.get("/summary", {}, async () => {
     const { summary } = await getWeekSummary();
@@ -243,7 +245,7 @@ var getWeekSummaryRoute = async (app2) => {
   });
 };
 
-// src/app/functions/get-week-pending-goals.ts
+// api/app/functions/get-week-pending-goals.ts
 var import_dayjs3 = __toESM(require("dayjs"));
 var import_weekOfYear3 = __toESM(require("dayjs/plugin/weekOfYear"));
 var import_drizzle_orm3 = require("drizzle-orm");
@@ -284,7 +286,7 @@ async function getWeekPendingGoals() {
   return { pendingGoals };
 }
 
-// src/http/routes/get-week-pending-goals.ts
+// api/http/routes/get-week-pending-goals.ts
 var getWeekPendingGoalsRoute = async (app2) => {
   app2.get("/pending-goals", {}, async () => {
     const { pendingGoals } = await getWeekPendingGoals();
@@ -292,9 +294,7 @@ var getWeekPendingGoalsRoute = async (app2) => {
   });
 };
 
-// src/http/server.ts
-var import_swagger = __toESM(require("@fastify/swagger"));
-var import_swagger_ui = __toESM(require("@fastify/swagger-ui"));
+// api/http/index.ts
 var app = (0, import_fastify.default)().withTypeProvider();
 app.register(import_cors.default, { origin: "*" });
 app.register(import_swagger.default, {
