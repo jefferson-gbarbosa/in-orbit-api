@@ -1,8 +1,8 @@
-import { env } from '@/env'
+import { env } from './api/env'
 import { defineConfig } from 'drizzle-kit'
 
 export default defineConfig({
-  schema: './src/db/schema/index.ts',
+  schema: './api/db/schema/index.ts',
   out: './.migrations',
   dbCredentials: {
     url: env.DATABASE_URL,
