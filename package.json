@@ -6,7 +6,7 @@
     "node": "20"
   },
   "scripts": {
-    "start": "node ./public/index.js",
+    "start": "node ./api/index.js",
     "build": "tsup api ",
     "dev": "tsx watch --env-file .env ./api/index.ts",
     "seed": "tsx --env-file .env ./api/db/seed.ts"
