@@ -38,6 +38,10 @@ app.register(fastifySwaggerUI, {
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
 
+app.get('/', (request, reply) => {
+  reply.send({ message: 'Seja bem vindo a nossa In.Orbit api. Para mais informações acesse a documentação https://api-in-orbit.onrender.com/docs' })
+})
+
 app.register(createGoalRoute)
 app.register(createGoalCompletionRoute)
 app.register(getWeekSummaryRoute)
