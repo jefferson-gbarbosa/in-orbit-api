@@ -20,7 +20,7 @@ Esta API foi projetada para ajudar você a criar, gerenciar e acompanhar suas me
 
 ## Documentação da API (Swagger)
 
-Para documentação da API, acesse o link: https://[https://api-in-orbit.onrender.com/doc](https://api-in-orbit.onrender.com/docs)
+Para documentação da API, acesse o link: https://[https://api-in-orbit.onrender.com/docs](https://api-in-orbit.onrender.com/docs)
 
 ## Banco de dados
 
