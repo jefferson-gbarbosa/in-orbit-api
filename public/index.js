@@ -26,7 +26,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// api/http/index.ts
+// api/index.ts
 var import_fastify = __toESM(require("fastify"));
 var import_cors = __toESM(require("@fastify/cors"));
 var import_fastify_type_provider_zod = require("fastify-type-provider-zod");
@@ -294,7 +294,7 @@ var getWeekPendingGoalsRoute = async (app2) => {
   });
 };
 
-// api/http/index.ts
+// api/index.ts
 var app = (0, import_fastify.default)().withTypeProvider();
 app.register(import_cors.default, { origin: "*" });
 app.register(import_swagger.default, {

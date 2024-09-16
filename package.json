@@ -6,9 +6,9 @@
     "node": "20"
   },
   "scripts": {
-    "start": "node ./dist/http/server.js",
+    "start": "node ./public/index.js",
     "build": "tsup api --out-dir public",
-    "dev": "tsx watch --env-file .env ./api/http/index.ts",
+    "dev": "tsx watch --env-file .env ./api/index.ts",
     "seed": "tsx --env-file .env ./api/db/seed.ts"
   },
   "keywords": [],

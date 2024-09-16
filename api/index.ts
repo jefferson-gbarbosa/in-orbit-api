@@ -8,10 +8,10 @@ import {
 } from 'fastify-type-provider-zod'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from "@fastify/swagger-ui";
-import { createGoalRoute } from './routes/create-goal';
-import { createGoalCompletionRoute } from './routes/create-goal-completion';
-import { getWeekSummaryRoute } from './routes/get-week-summary';
-import { getWeekPendingGoalsRoute } from './routes/get-week-pending-goals';
+import { createGoalRoute } from './http/routes/create-goal';
+import { createGoalCompletionRoute } from './http/routes/create-goal-completion';
+import { getWeekSummaryRoute } from './http/routes/get-week-summary';
+import { getWeekPendingGoalsRoute } from './http/routes/get-week-pending-goals';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
